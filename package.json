@@ -1,0 +1,29 @@
+{
+    "name": "async-tutorial",
+    "description": "Async tutorial using Math REST endpoint",
+    "author": "Felix Grund",
+    "license": "GPL-3.0",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">= 8.9 < 9"
+    },
+    "devDependencies": {
+        "@types/chai": "4.0.8",
+        "@types/mocha": "2.2.46",
+        "@types/core-js": "^0.9.35",
+        "@types/request-promise-native": "^1.0.2",
+        "chai": "4.1.2",
+        "mocha": "4.1.0",
+        "ts-node": "4.1.0",
+        "tslint": "5.8.0",
+        "typescript": "2.6.2",
+        "chai-as-promised": "^7.1.1",
+        "request": "^2.79.0",
+        "request-promise-native": "^1.0.3"
+    },
+    "scripts": {
+        "build": "tsc",
+        "lint": "tslint -c tslint.json 'src/**/*.ts'",
+        "test": "mocha --require ts-node/register test/Math.spec.ts"
+    }
+}
