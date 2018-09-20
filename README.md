@@ -1,7 +1,7 @@
 # D1 Tutorial: Async Development
 
 You are responsible for the software design and implementation that supports the API listed in src/Math.ts. 
-You will use for this deliverable is `request-promise-native`. 
+You will use the `request-promise-native` package for this task. 
 This package will automatically be installed when you run `yarn install`. 
 The method `request` that you need to use is already
 imported in `Math.ts` so you should be able to simply use `request(url)` to send a request. 
