@@ -29,11 +29,11 @@ describe("MathSpec", function () {
         math = null;
     });
 
-    it("Result should be 0 if no URLs are provided", async function() {
-        let urls: string[] = [];
+    it("add - Result should be 0 for URL 0, 1, 6, and 10", async function() {
+        let testUrls: string[] = [ urls[0], urls[1], urls[6], urls[10] ];
         let response: number;
         try {
-            response = await math.add(urls);
+            response = await math.add(testUrls);
         } catch (err) {
             response = err;
         } finally {
@@ -41,7 +41,43 @@ describe("MathSpec", function () {
         }
     });
 
-    it("Three URLs with numbers as strings and nested number array", async function() {
+    it("add - Result should be 6 for URL 9", async function() {
+        let testUrls: string[] = [ urls[9] ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(6);
+        }
+    });
+
+    it("add - Result should be 8 for URL 3, 4, and 7", async function() {
+        let testUrls: string[] = [ urls[3], urls[4], urls[7] ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(8);
+        }
+    });
+
+    it("add - Result should be 16 for URL 2, and 8", async function() {
+        let testUrls: string[] = [ urls[2], urls[8] ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(16);
+        }
+    });
+
+    it("add - Three URLs with numbers as strings and nested number array", async function() {
         let testUrls: string[] = [ urls[7], urls[8], urls[10] ];
         let response: number;
         try {
@@ -50,6 +86,138 @@ describe("MathSpec", function () {
             response = err;
         } finally {
             expect(response).to.equal(22);
+        }
+    });
+
+    it("add - Result should be 0 if no URLs are provided", async function() {
+        let testUrls: string[] = [];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(0);
+        }
+    });
+
+    it("add - Error should be thrown for invalid JSON file", async function() {
+        let testUrls: string[] = [ urls[5] ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal('Error: Could not parse JSON');
+        }
+    });
+
+    it("multiply - Result should be 6 for URL 0 and 2", async function() {
+        let testUrls: string[] = [ urls[0], urls[2] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(6);
+        }
+    });
+
+    it("multiply - Result should be 1 for URL 1", async function() {
+        let testUrls: string[] = [ urls[1] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(1);
+        }
+    });
+
+    it("multiply - Result should be 0 for URL 3 and 11", async function() {
+        let testUrls: string[] = [ urls[3], urls[11] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(37326);
+        }
+    });
+
+    it("multiply - Result should be -35 for URL 4 and 6", async function() {
+        let testUrls: string[] = [ urls[4], urls[6] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(-35);
+        }
+    });
+
+    it("multiply - Result should be 5040 for URL 7, 8, and 9", async function() {
+        let testUrls: string[] = [ urls[7], urls[8], urls[9] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(5040);
+        }
+    });
+
+    it("multiply - Error should be thrown for invalid URL file", async function() {
+        let testUrls: string[] = [ 'hahaha' ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal('Error: URL could not be retrieved');
+        }
+    });
+
+    it("multiply - Error should be thrown for invalid JSON file", async function() {
+        let testUrls: string[] = [ urls[5] ];
+        let response: number;
+        try {
+            response = await math.multiply(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal('Error: Could not parse JSON');
+        }
+    });
+
+    it("add - Error should be thrown for invalid URL file", async function() {
+        let testUrls: string[] = [ 'hahaha' ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal('Error: URL could not be retrieved');
+        }
+    });
+
+    it("add - Result should be 6221 for URL 11", async function() {
+        let testUrls: string[] = [ urls[11] ];
+        let response: number;
+        try {
+            response = await math.add(testUrls);
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.equal(6221);
         }
     });
 
